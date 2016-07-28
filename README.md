@@ -133,13 +133,13 @@ These are the available options and their default values:
 Open the drawer programmatically:
 
 ```javascript
-$(".myElement").SideDrawer().open()
+$(".myElement").data("SideDrawer").open()
 ```
 
 Close the drawer programmatically:
 
 ```javascript
-$(".myElement").SideDrawer().open()
+$(".myElement").data("SideDrawer").close()
 ```
 
 
