@@ -296,7 +296,7 @@ Default values. Can be overridden by `conf`.
     SideDrawer::close = ->
         closeDrawer.call @
 
-    SideDrawer.version = "0.0.1"
+    SideDrawer.version = "0.0.2"
 
 
 jQuery
