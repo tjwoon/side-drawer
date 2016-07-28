@@ -269,6 +269,7 @@ Default values. Can be overridden by `conf`.
         for event in ["touchstart", "touchmove", "touchend", "touchcancel"]
             @parent[0].addEventListener event, @, false
 
+        @
 
     SideDrawer.version = "0.0.1"
 
