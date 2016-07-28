@@ -14,17 +14,11 @@
                 overflow: scroll;
                 -webkit-overflow-scrolling: touch;
             }
+            .sideDrawer {
+                position: fixed !important;
+            }
             .drawer {
                 background: #404040; /* Demo */
-                overflow: scroll;
-                -webkit-overflow-scrolling: touch;
-            }
-            .page {
-                position: absolute;
-                top: 0px;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
                 overflow: scroll;
                 -webkit-overflow-scrolling: touch;
             }
@@ -49,21 +43,19 @@
             </div>
         </div>
 
-        <div class="page">
-            <input type="button" onclick="alert('Aloha')" value="Aloha" />
-            <input type="button" onclick="alert('I am')" value="I am" />
-            <input type="button" onclick="alert('Your')" value="Your" />
-            <input type="button" onclick="alert('Page')" value="Page" />
-            <input type="button" onclick="alert('Contents')" value="Contents" />
-            <input type="button" onclick="alert('This is for')" value="This is for" />
-            <input type="button" onclick="alert('You to be')" value="You to be" />
-            <input type="button" onclick="alert('Able to')" value="Able to" />
-            <input type="button" onclick="alert('Scroll the Page')" value="Scroll the Page" />
-        </div>
+        <input type="button" onclick="alert('Aloha')" value="Aloha" />
+        <input type="button" onclick="alert('I am')" value="I am" />
+        <input type="button" onclick="alert('Your')" value="Your" />
+        <input type="button" onclick="alert('Page')" value="Page" />
+        <input type="button" onclick="alert('Contents')" value="Contents" />
+        <input type="button" onclick="alert('This is for')" value="This is for" />
+        <input type="button" onclick="alert('You to be')" value="You to be" />
+        <input type="button" onclick="alert('Able to')" value="Able to" />
+        <input type="button" onclick="alert('Scroll the Page')" value="Scroll the Page" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="touch.js"></script>
-        <script src="../side-drawer.js"></script>
+        <script src="../side-drawer.min.js"></script>
 
         <script>
             $(".sideDrawer").SideDrawer()
