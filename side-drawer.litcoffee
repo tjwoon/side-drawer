@@ -243,6 +243,7 @@ Default values. Can be overridden by `conf`.
 
 ### Init
 
+        @holder.hide()
         @holder.css "position", "absolute"
         @holder.css "top", "0px"
         @holder.css "bottom", "0px"
