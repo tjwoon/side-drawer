@@ -147,5 +147,9 @@ Getting Involved in Development
 Source code is in the `.litcoffee` file, written in
 [CoffeeScript](http://www.coffeescript.org).
 
-Edit the litcoffee source, then compile to JS using:
-`coffee --compile --map side-drawer.litcoffee`
+Edit the litcoffee source, then compile to JS, and uglify it:
+
+```
+$ coffee --compile side-drawer.litcoffee
+$ uglifyjs side-drawer.js -m -c -o side-drawer.min.js
+```
