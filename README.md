@@ -89,6 +89,8 @@ $("#leftMenu").sideDrawer({
 })
 ```
 
+To style the side drawer, make sure to use the `!important` directive to
+override the inline CSS added by this library.
 
 For more complete demos, look in the `demo/` directory.
 
