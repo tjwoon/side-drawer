@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+            * {
+                margin: 0px;
+            }
+            html , body {
+                height: 100%;
+            }
+            body {
+                position: relative;
+                overflow: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+            .header {
+                box-sizing: border-box;
+                height: 60px;
+                padding: 15px 0px;
+                text-align: center;
+                color: white;
+                background: red;
+            }
+            #openBtn {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                height: 40px;
+                width: 40px;
+            }
+            .body {
+                position: absolute;
+                top: 60px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+            }
+            .drawer {
+                background: #404040; /* Demo */
+                overflow: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+            .page {
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                overflow: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+            /* Demo */
+            input {
+                display: block;
+                box-sizing: border-box;
+                -webkit-appearance: none;
+            }
+            input.big {
+                padding: 50px;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <input type="button" id="openBtn" onclick="$('.sideDrawer').data('SideDrawer').open()" value="Open" />
+            Demo App!
+        </div>
+
+        <div class="body">
+
+            <div class="sideDrawer">
+                <div class="drawer">
+                    <input class="big" type="button" onclick="alert('Hello')" value="Hello" />
+                    <input class="big" type="button" onclick="alert('This is')" value="This is" />
+                    <input class="big" type="button" onclick="alert('Inside')" value="Inside" />
+                    <input class="big" type="button" onclick="alert('The')" value="The" />
+                    <input class="big" type="button" onclick="alert('Drawer')" value="Drawer" />
+                </div>
+            </div>
+
+            <div class="page">
+                <input class="big" type="button" onclick="alert('Aloha')" value="Aloha" />
+                <input class="big" type="button" onclick="alert('I am')" value="I am" />
+                <input class="big" type="button" onclick="alert('Your')" value="Your" />
+                <input class="big" type="button" onclick="alert('Page')" value="Page" />
+                <input class="big" type="button" onclick="alert('Contents')" value="Contents" />
+                <input class="big" type="button" onclick="alert('This is for')" value="This is for" />
+                <input class="big" type="button" onclick="alert('You to be')" value="You to be" />
+                <input class="big" type="button" onclick="alert('Able to')" value="Able to" />
+                <input class="big" type="button" onclick="alert('Scroll the Page')" value="Scroll the Page" />
+            </div>
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="touch.js"></script>
+        <script src="../side-drawer.min.js"></script>
+
+        <script>
+            $(".sideDrawer").SideDrawer()
+        </script>
+    </body>
+</html>
