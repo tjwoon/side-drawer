@@ -60,7 +60,7 @@ Open or close the drawer.
         @parent.css "overflow", @previousOverflow
 
         @fingerId = undefined # Prevent touchstart/touchend in wrong handlers
-        setTimeout (-> me.holder.hide()), 300 # FIXME
+        setTimeout (-> me.holder.hide()), @options.speed * 1000 # FIXME
         @handleEvent = swipeToOpenHandler
 
     drawerWidth = ->
