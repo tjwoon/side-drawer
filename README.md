@@ -85,7 +85,7 @@ html , body {
 
 ```javascript
 $("#leftMenu").sideDrawer({
-    ... // optional config object
+    ... // optional options
 })
 ```
 
@@ -93,10 +93,26 @@ $("#leftMenu").sideDrawer({
 For more complete demos, look in the `demo/` directory.
 
 
-Config
-------
+API
+---
 
-These are the available config properties and their default values:
+### Constructing
+
+Turning an element into a side drawer (make sure the HTML structure is correct):
+
+```javascript
+$(".myElement").SideDrawer()
+```
+
+With options:
+
+```javascript
+$(".myElement").SideDrawer({
+    ...
+})
+```
+
+These are the available options and their default values:
 
 ```javascript
 {
@@ -108,6 +124,20 @@ These are the available config properties and their default values:
     opacity: 0.6,       // opacity of the background (behind the drawer)
     speed: 0.2          // menu open/close transition duration (seconds)
 }
+```
+
+### Manipulating
+
+Open the drawer programmatically:
+
+```javascript
+$(".myElement").SideDrawer().open()
+```
+
+Close the drawer programmatically:
+
+```javascript
+$(".myElement").SideDrawer().open()
 ```
 
 

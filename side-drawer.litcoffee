@@ -27,9 +27,14 @@ Open or close the drawer.
     openDrawer = ->
         me = @
 
+        fullyOpen = @fullyOpen
+        unless fullyOpen? then fullyOpen = drawerWidth.call @
+
+        @holder.show()
+
         @drawer
         .css "transition", "transform #{@options.speed}s ease-out"
-        .css "transform", "translate3d(#{@fullyOpen}px,0px,0px)"
+        .css "transform", "translate3d(#{fullyOpen}px,0px,0px)"
 
         @holder
         .css "transition", "background #{@options.speed}s ease-out"
@@ -58,6 +63,14 @@ Open or close the drawer.
         setTimeout (-> me.holder.hide()), 300 # FIXME
         @handleEvent = swipeToOpenHandler
 
+    drawerWidth = ->
+        # Hack to calculate width of hidden elements
+        # http://stackoverflow.com/a/1472385
+        @holder.css("visibility","hidden").css("display","block")
+        outerWidth = @drawer.outerWidth()
+        @holder.css("visibility","visible").css("display","none")
+        outerWidth
+
 Event handler to handle swipe to open drawer.
 
     swipeToOpenHandler = (evt) ->
@@ -72,11 +85,7 @@ Event handler to handle swipe to open drawer.
                         @offset = 0
                         @offsetList = []
 
-                        # Hack to calculate width of hidden elements
-                        # http://stackoverflow.com/a/1472385
-                        @holder.css("visibility","hidden").css("display","block")
-                        @fullyOpen = @drawer.outerWidth()
-                        @holder.css("visibility","visible").css("display","none")
+                        @fullyOpen = drawerWidth.call @
 
                         @drawer.css "transition", "none"
                         @holder.css "transition", "none"
@@ -110,8 +119,6 @@ Event handler to handle swipe to open drawer.
 
                 for touch in evt.changedTouches
                     if @fingerId is touch.identifier
-                        @fingerId = undefined
-
                         # Figure out swipe velocity
                         now = (new Date).getTime()
                         while @offsetList.length and (now - @offsetList[0].time > 300)
@@ -127,6 +134,13 @@ Event handler to handle swipe to open drawer.
                             closeDrawer.call @
 
                         evt.stopPropagation()
+
+                        @fingerId = undefined
+                        @startX = undefined
+                        @offset = undefined
+                        @offsetList = undefined
+                        @fullyOpen = undefined
+                        @previousOverflow = undefined
 
                         break
 
@@ -177,8 +191,6 @@ Event handler to handle swipe to close drawer.
 
                 for touch in evt.changedTouches
                     if @fingerId is touch.identifier
-                        @fingerId = undefined
-
                         # Figure out swipe velocity
                         now = (new Date).getTime()
                         while @offsetList.length and (now - @offsetList[0].time > 300)
@@ -194,6 +206,13 @@ Event handler to handle swipe to close drawer.
                             openDrawer.call @
 
                         evt.stopPropagation()
+
+                        @fingerId = undefined
+                        @startX = undefined
+                        @offset = undefined
+                        @offsetList = undefined
+                        @fullyOpen = undefined
+                        @previousOverflow = undefined
 
                         break
 
@@ -270,6 +289,12 @@ Default values. Can be overridden by `conf`.
             @parent[0].addEventListener event, @, false
 
         @
+
+    SideDrawer::open = ->
+        openDrawer.call @
+
+    SideDrawer::close = ->
+        closeDrawer.call @
 
     SideDrawer.version = "0.0.1"
 
