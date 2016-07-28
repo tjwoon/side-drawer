@@ -44,7 +44,7 @@ limitations under the License.
     this.fingerId = void 0;
     setTimeout((function() {
       return me.holder.hide();
-    }), 300);
+    }), this.options.speed * 1000);
     return this.handleEvent = swipeToOpenHandler;
   };
 
