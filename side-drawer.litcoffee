@@ -35,6 +35,9 @@ Open or close the drawer.
         .css "transition", "background #{@options.speed}s ease-out"
         .css "background", "rgba(0,0,0,#{@options.opacity})"
 
+        @previousOverflow =  @parent.css "overflow"
+        @parent.css "overflow", "hidden"
+
         @fingerId = undefined # Prevent touchstart/touchend in wrong handlers
         @handleEvent = swipeToCloseHandler
 
@@ -48,6 +51,8 @@ Open or close the drawer.
         @holder
         .css "transition", "background #{@options.speed}s ease-out"
         .css "background", "rgba(0,0,0,0)"
+
+        @parent.css "overflow", @previousOverflow
 
         @fingerId = undefined # Prevent touchstart/touchend in wrong handlers
         setTimeout (-> me.holder.hide()), 300 # FIXME
@@ -231,6 +236,8 @@ Default values. Can be overridden by `conf`.
             # [ { offset:N, time:timestamp }, ... ]
 
         @fullyOpen = undefined # max offset for fully open drawer.
+
+        @previousOverflow = undefined # original value of @parent's `overflow` CSS
 
 ### Tap
 
